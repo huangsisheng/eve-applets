@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 17:53:52
- * @LastEditTime: 2021-04-08 10:21:27
+ * @LastEditTime: 2021-04-08 16:22:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \eva-applets\src\store\index.js
@@ -21,7 +21,6 @@ files.keys().forEach((key) => {
 Object.keys(modules).forEach((key) => {
     modules[key]['namespaced'] = true
 })
-
 const store = new Vuex.Store({
     modules
 })

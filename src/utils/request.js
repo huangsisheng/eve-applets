@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 14:03:03
- * @LastEditTime: 2021-04-08 10:59:49
+ * @LastEditTime: 2021-04-08 15:47:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \eva-applets\src\utils\request.js
@@ -33,13 +33,13 @@ fly.interceptors.request.use((request)=>{
 fly.interceptors.response.use(
     (response) => {
         //只将请求结果的data字段返回
-		console.log(response.data)
         toast.hideLoading()
         return response.data
     },
     (err) => {
+        toast.hideLoading()
         //发生网络错误后会走到这里
-        //return Promise.resolve("ssss")
+        return Promise.resolve(err)
     }
 )
 

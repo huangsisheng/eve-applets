@@ -1,19 +1,19 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-07 13:38:17
- * @LastEditTime: 2021-04-08 10:38:29
+ * @LastEditTime: 2021-04-08 16:42:26
  * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @Description: 入口页面
  * @FilePath: \eva-applets\src\pages\index\index.vue
 -->
 <template>
   <view class="content">
-    <view class="" @click="toTheme"> 去主题配置 </view>
-    <view class="" @click="modal"> 模态框 </view>
+    <button class="" @click="toTheme"> 去主题配置 </button>
+    <button class="" @click="modal"> 模态框 </button>
   </view>
 </template>
 <script>
-import { getEvaTemplate } from "../../api/index.js";
+import { getEvaTemplate } from "@/api/index.js";
 export default {
   data() {
     return {};
@@ -22,18 +22,19 @@ export default {
     this.getEvaTemplate();
   },
   methods: {
-    getEvaTemplate() {
-      getEvaTemplate({ templeteId: 1617767082202005 });
+    async getEvaTemplate() {
+      try {
+        const { data } = await getEvaTemplate({ templeteId: 1617767082202005 });
+        console.log(data)
+      } catch (error) {}
     },
-    modal(){
-        this.$toast.showModal().then(() => {
-            console.log(11)
-        }).catch(() => {
-            console.log(22)
-        })
+    modal() {
+      this.$toast
+        .showModal()
+        .then(() => {})
+        .catch(() => {});
     },
     toTheme() {
-      console.log(this.$router);
       this.$router.push({
         path: "../themeSetting/index",
       });

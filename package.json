@@ -1,79 +1,88 @@
 {
-  "name": "eva-applets",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "npm run dev:h5",
-    "build": "npm run build:h5",
-    "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
-    "build:mp-weixin": "cross-env NODE_ENV=production process.env.VUE_APP_TITLE=prod UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
-    "pre-build:mp-weixin": "cross-env NODE_ENV=production process.env.VUE_APP_TITLE=test UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
-    "dev:h5": "cross-env NODE_ENV=development UNI_PLATFORM=h5 vue-cli-service uni-serve",
-    "dev:mp-weixin": "cross-env NODE_ENV=development process.env.VUE_APP_TITLE=test UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
-    "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js",
-    "test:h5": "cross-env UNI_PLATFORM=h5 jest -i",
-    "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i"
-  },
-  "dependencies": {
-    "@dcloudio/uni-app-plus": "^2.0.0-31820210406002",
-    "@dcloudio/uni-h5": "^2.0.0-31820210406002",
-    "@dcloudio/uni-helper-json": "*",
-    "@dcloudio/uni-i18n": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-360": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-alipay": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-baidu": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-kuaishou": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-qq": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-toutiao": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-vue": "^2.0.0-31820210406002",
-    "@dcloudio/uni-mp-weixin": "^2.0.0-31820210406002",
-    "@dcloudio/uni-quickapp-native": "^2.0.0-31820210406002",
-    "@dcloudio/uni-quickapp-webview": "^2.0.0-31820210406002",
-    "@dcloudio/uni-stat": "^2.0.0-31820210406002",
-    "@vue/shared": "^3.0.0",
-    "core-js": "^3.6.5",
-    "flyio": "^0.6.2",
-    "regenerator-runtime": "^0.12.1",
-    "vue": "^2.6.11",
-    "vuex": "^3.2.0"
-  },
-  "devDependencies": {
-    "@babel/runtime": "~7.12.0",
-    "@dcloudio/types": "*",
-    "@dcloudio/uni-automator": "^2.0.0-31820210406002",
-    "@dcloudio/uni-cli-shared": "^2.0.0-31820210406002",
-    "@dcloudio/uni-migration": "^2.0.0-31820210406002",
-    "@dcloudio/uni-template-compiler": "^2.0.0-31820210406002",
-    "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0-31820210406002",
-    "@dcloudio/vue-cli-plugin-uni": "^2.0.0-31820210406002",
-    "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-31820210406002",
-    "@dcloudio/webpack-uni-mp-loader": "^2.0.0-31820210406002",
-    "@dcloudio/webpack-uni-pages-loader": "^2.0.0-31820210406002",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-plugin-import": "^1.11.0",
-    "cross-env": "^7.0.2",
-    "jest": "^25.4.0",
-    "mini-types": "*",
-    "miniprogram-api-typings": "*",
-    "postcss-comment": "^2.0.0",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "browserslist": [
-    "Android >= 4",
-    "ios >= 8"
-  ],
-  "uni-app": {
+    "name": "eva-applets",
+    "version": "0.1.0",
+    "private": true,
     "scripts": {
-        "mp-weixin": {
-            "title": "小艺测评",
-            "env": {
-                "UNI_PLATFORM": "mp-weixin"
+        "dev:mp-wx": "cross-env NODE_ENV=development VUE_APP_TITLE=test UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
+        "pre-build:mp-wx": "cross-env NODE_ENV=production VUE_APP_TITLE=test UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
+        "build:mp-wx": "cross-env NODE_ENV=production VUE_APP_TITLE=prod UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
+        "test:mp-wx": "cross-env UNI_PLATFORM=mp-weixin jest -i",
+        "dev:h5": "cross-env NODE_ENV=development VUE_APP_TITLE=test UNI_PLATFORM=h5 vue-cli-service uni-serve",
+        "pre-build:h5": "cross-env NODE_ENV=production VUE_APP_TITLE=test UNI_PLATFORM=h5 vue-cli-service uni-build",
+        "build:h5": "cross-env NODE_ENV=production VUE_APP_TITLE=prod UNI_PLATFORM=h5 vue-cli-service uni-build",
+        "test:h5": "cross-env UNI_PLATFORM=h5 jest -i",
+        "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js"
+        
+    },
+    "uni-app": {
+        "scripts": {
+            "mp-weixin": {
+                "title": "小艺测评",
+                "env": {
+                    "UNI_PLATFORM": "mp-weixin"
+                },
+                "define": {
+                    "MP-WEIXIN": true
+                }
             },
-            "define": {
-                "MP-WEIXIN": true
+            "h5": {
+                "title": "小艺测评",
+                "env": {
+                    "UNI_PLATFORM": "h5"
+                },
+                "define": {
+                    "H5": true
+                }
             }
         }
-    }
-  }
+    },
+    "dependencies": {
+        "@dcloudio/uni-app-plus": "^2.0.0-31820210406002",
+        "@dcloudio/uni-h5": "^2.0.0-31820210406002",
+        "@dcloudio/uni-helper-json": "*",
+        "@dcloudio/uni-i18n": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-360": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-alipay": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-baidu": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-kuaishou": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-qq": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-toutiao": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-vue": "^2.0.0-31820210406002",
+        "@dcloudio/uni-mp-weixin": "^2.0.0-31820210406002",
+        "@dcloudio/uni-quickapp-native": "^2.0.0-31820210406002",
+        "@dcloudio/uni-quickapp-webview": "^2.0.0-31820210406002",
+        "@dcloudio/uni-stat": "^2.0.0-31820210406002",
+        "@vue/shared": "^3.0.0",
+        "core-js": "^3.6.5",
+        "flyio": "^0.6.2",
+        "regenerator-runtime": "^0.12.1",
+        "vue": "^2.6.11",
+        "vuex": "^3.2.0"
+    },
+    "devDependencies": {
+        "@babel/runtime": "~7.12.0",
+        "@dcloudio/types": "*",
+        "@dcloudio/uni-automator": "^2.0.0-31820210406002",
+        "@dcloudio/uni-cli-shared": "^2.0.0-31820210406002",
+        "@dcloudio/uni-migration": "^2.0.0-31820210406002",
+        "@dcloudio/uni-template-compiler": "^2.0.0-31820210406002",
+        "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0-31820210406002",
+        "@dcloudio/vue-cli-plugin-uni": "^2.0.0-31820210406002",
+        "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-31820210406002",
+        "@dcloudio/webpack-uni-mp-loader": "^2.0.0-31820210406002",
+        "@dcloudio/webpack-uni-pages-loader": "^2.0.0-31820210406002",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "babel-plugin-import": "^1.11.0",
+        "cross-env": "^7.0.2",
+        "jest": "^25.4.0",
+        "mini-types": "*",
+        "miniprogram-api-typings": "*",
+        "postcss-comment": "^2.0.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "browserslist": [
+        "Android >= 4",
+        "ios >= 8"
+    ]
 }
