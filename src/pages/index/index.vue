@@ -1,22 +1,24 @@
 <!--
  * @Author: your name
  * @Date: 2021-04-07 13:38:17
- * @LastEditTime: 2021-04-08 16:42:26
+ * @LastEditTime: 2021-04-09 18:04:34
  * @LastEditors: Please set LastEditors
  * @Description: 入口页面
  * @FilePath: \eva-applets\src\pages\index\index.vue
 -->
 <template>
   <view class="content">
-    <button class="" @click="toTheme"> 去主题配置 </button>
-    <button class="" @click="modal"> 模态框 </button>
+    <van-button class="" @click="toTheme">去主题配置</van-button>
+    <van-button class="" @click="modal">模态框</van-button>
+    
   </view>
 </template>
 <script>
 import { getEvaTemplate } from "@/api/index.js";
 export default {
   data() {
-    return {};
+    return {
+    };
   },
   onLoad() {
     this.getEvaTemplate();
@@ -25,7 +27,7 @@ export default {
     async getEvaTemplate() {
       try {
         const { data } = await getEvaTemplate({ templeteId: 1617767082202005 });
-        console.log(data)
+        console.log(data);
       } catch (error) {}
     },
     modal() {
@@ -38,7 +40,7 @@ export default {
       this.$router.push({
         path: "../themeSetting/index",
       });
-    },
+    }
   },
 };
 </script>

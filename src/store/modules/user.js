@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 18:00:54
- * @LastEditTime: 2021-04-08 16:39:54
+ * @LastEditTime: 2021-04-09 09:43:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \eva-applets\src\store\modules\user.js
@@ -9,11 +9,8 @@
 
 
 import { SET_USER_INFO } from "../constants";
-
 import { userLogin } from "@/api";
-
-import Storage from "@/utils/storage"
-const storage = new Storage()
+import storage from "@/utils/storage"
 
 export default {
     state: {

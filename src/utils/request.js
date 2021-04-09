@@ -1,12 +1,12 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 14:03:03
- * @LastEditTime: 2021-04-08 15:47:19
+ * @LastEditTime: 2021-04-09 16:41:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \eva-applets\src\utils\request.js
  */
-import configs from "../config/index.js"
+import configs from "@/commons/config"
 import Toast from "./toast"
 const toast = new Toast()
 
